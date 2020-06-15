@@ -1,0 +1,25 @@
+definitions:
+  tests: &test
+    name: Tests
+    image: adaptavist/terraform:alpine-0.12.8-dev
+    script:
+      - (echo ${PIPELINE_GIT_PRIVATE_KEY} | base64 -d >> ~/.ssh/id_rsa) && chmod 0600 ~/.ssh/id_rsa
+      - terraform fmt -check -recursive -diff
+      - (cd test && go test)
+
+  release: &release
+    name: Release
+    image: node:13
+    caches:
+      - node
+    script:
+      - npm install --save-dev
+      - npx semantic-release -r ${BITBUCKET_GIT_HTTP_ORIGIN}
+
+pipelines:
+  default:
+    - step: *test
+  branches:
+    master:
+      - step: *test
+      - step: *release
