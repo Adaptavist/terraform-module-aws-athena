@@ -1,0 +1,39 @@
+{
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/release-notes-generator": "^9.0.0",
+    "husky": "^4.2.1"
+  },
+  "scripts": {
+    "check": "terraform fmt -check -recursive -diff",
+    "format": "terraform fmt -recursive -diff",
+    "test": "cd test && go test"
+  },
+  "husky": {
+    "skipCI": true,
+    "hooks": {
+      "pre-commit": "terraform fmt -check -recursive -diff",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      "@semantic-release/changelog",
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/git",
+      "@semantic-release/release-notes-generator"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
