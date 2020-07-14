@@ -33,7 +33,7 @@
       [
         "@semantic-release/exec",
         {
-          "successCmd": "aws s3 sync . s3://terraform.adaptavistlabs.com-website/modules/${process.env.BITBUCKET_REPO_SLUG}/${nextRelease.version}/ --delete --exclude \"*\" --include \"*.zip\" --acl public-read"
+          "successCmd": "git push --mirror git@github.com:Adaptavist/terraform-module-aws-athena.git"
         }
       ]
     ]

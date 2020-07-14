@@ -14,12 +14,7 @@ definitions:
       - node
     script:
       - npm install --save-dev
-      - zip -r ${BITBUCKET_REPO_SLUG}.zip *.tf *.md modules
-      - AWS_ACCESS_KEY_ID=$DEPLOY_AWS_ACCESS_KEY_ID
-        AWS_SECRET_ACCESS_KEY=$DEPLOY_AWS_SECRET_ACCESS_KEY
-        AWS_DEFAULT_REGION=us-east-1
-        npx semantic-release -r ${BITBUCKET_GIT_HTTP_ORIGIN}
-# semantic release will perform S3 sync if successful
+      - npx semantic-release -r ${BITBUCKET_GIT_HTTP_ORIGIN}
 
 pipelines:
   default:
