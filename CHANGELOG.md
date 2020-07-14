@@ -1,3 +1,10 @@
+# [1.1.0](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.0.0...v1.1.0) (2020-07-14)
+
+
+### Features
+
+* using terraform registry ([f311196](http://bitbucket.org/adaptavistlabs/module-aws-athena/commits/f311196d34e46b61f7ee6cae9a2903811a9c016c))
+
 # 1.0.0 (2020-07-02)
 
 
