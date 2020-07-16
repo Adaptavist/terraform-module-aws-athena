@@ -13,7 +13,7 @@ definitions:
         AWS_SECRET_ACCESS_KEY="${TF_TEST_AWS_SECRET_ACCESS_KEY}"
         terraform plan -out=plan.out &&
         terraform-compliance -f . -p plan.out)
-      - (cd ../minimal &&
+      - (cd test/fixtures/minimal &&
         terraform init &&
         AWS_DEFAULT_REGION=us-east-1
         AWS_ACCESS_KEY_ID="${TF_TEST_AWS_ACCESS_KEY_ID}"
