@@ -7,12 +7,14 @@ definitions:
       - (echo ${PIPELINE_GIT_PRIVATE_KEY} | base64 -d >> ~/.ssh/id_rsa) && chmod 0600 ~/.ssh/id_rsa
       - terraform fmt -check -recursive -diff
       - (cd test/fixtures/default &&
+        terraform init &&
         AWS_DEFAULT_REGION=us-east-1
         AWS_ACCESS_KEY_ID="${TF_TEST_AWS_ACCESS_KEY_ID}"
         AWS_SECRET_ACCESS_KEY="${TF_TEST_AWS_SECRET_ACCESS_KEY}"
         terraform plan -out=plan.out &&
         terraform-compliance -f . -p plan.out)
       - (cd ../minimal &&
+        terraform init &&
         AWS_DEFAULT_REGION=us-east-1
         AWS_ACCESS_KEY_ID="${TF_TEST_AWS_ACCESS_KEY_ID}"
         AWS_SECRET_ACCESS_KEY="${TF_TEST_AWS_SECRET_ACCESS_KEY}"
