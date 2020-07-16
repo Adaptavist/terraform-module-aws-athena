@@ -35,6 +35,9 @@ module "this" {
   query_output_locations = {
     "search_all" = "s3://${aws_s3_bucket.output.bucket}"
   }
+  query_output_buckets_kms_keys = {
+    "search_all" = "arn:aws:kms:us-east-1:111122223333:alias/my-key"
+  }
   database_force_destroy = true
   create_database        = true
 }
