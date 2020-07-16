@@ -51,6 +51,7 @@ variable "queries" {
 
 variable "query_output_locations" {
   type        = map(string)
+  default     = {}
   description = "A map of output locations (S3 URLs) for Athena queries. Keys are query names identical to the map above"
 }
 
