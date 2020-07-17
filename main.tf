@@ -11,6 +11,7 @@ module "labels" {
 locals {
   db_name             = var.database_name != null ? var.database_name : "${module.labels.id}_${var.bucket_name}_db"
   database_snake_case = replace(lower(local.db_name), "-", "_")
+  env                 = lower(var.stage)
 }
 
 data "aws_s3_bucket" "this" {
@@ -30,7 +31,8 @@ resource "aws_athena_named_query" "queries" {
   name        = "${module.labels.id}_${each.key}"
   database    = local.database_snake_case
   description = "Query ${each.key}"
-  query       = templatefile(each.value, { db_name = local.database_snake_case })
+  query       = templatefile(each.value, { db_name = local.database_snake_case, env = local.env })
+  workgroup   = (length(var.query_output_locations) == 0 ? "primary" : aws_athena_workgroup.queries[each.key].id)
 }
 
 resource "aws_athena_workgroup" "queries" {
@@ -47,7 +49,7 @@ resource "aws_athena_workgroup" "queries" {
       dynamic "encryption_configuration" {
         for_each = contains(keys(var.query_output_buckets_kms_keys), each.key) ? [true] : []
         content {
-          encryption_option = "AWS_KMS"
+          encryption_option = "SSE_KMS"
           kms_key_arn       = var.query_output_buckets_kms_keys[each.key]
         }
       }

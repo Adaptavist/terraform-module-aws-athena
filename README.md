@@ -19,7 +19,7 @@ responsible for creating encrypted private S3 buckets.
 | database_force_destroy        | bool    | false   |          | A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are not recoverable.
 | create_table_sql_path         | string  |         |          | A path to the file that contains create table sql
 | queries                       | map     |         | ✓        | A map of Athena query SQLs where key is the query name and the value is the path to the file containing the query
-| query_output_locations        | map     |         | ✓        | A map of output locations (S3 URLs) for Athena queries. Keys are query names identical to the map above
+| query_output_locations        | map     |         |          | A map of output locations (S3 URLs) for Athena queries. Keys are query names identical to the map above. If omitted, output locations need to be specified in queries.
 | query_output_buckets_kms_keys | map     |         |          | A map of KMS keys used to encrypt data in Athena queries output S3 buckets. Keys are query names identical to the map above. Results will not be encrypted if the key for a query is not defined in the map.
 | namespace                     | string  |         | ✓        | Namespace used for labeling resources                  
 | name                          | string  |         | ✓        | Name of the module / resources                         
