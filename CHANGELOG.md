@@ -1,3 +1,10 @@
+# [1.2.0](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.1.0...v1.2.0) (2020-07-17)
+
+
+### Features
+
+* added env variable to the template and updated tests ([d6fb16e](http://bitbucket.org/adaptavistlabs/module-aws-athena/commits/d6fb16ee766e89437b09399f2c614b11dc6f557c))
+
 # [1.1.0](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.0.0...v1.1.0) (2020-07-14)
 
 
