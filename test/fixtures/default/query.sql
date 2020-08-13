@@ -1,2 +1,1 @@
-SELECT *
-FROM ${db_name}.table_2
+SELECT * FROM ${db_name}.${table} WHERE 1=1

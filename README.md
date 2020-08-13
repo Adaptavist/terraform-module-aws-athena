@@ -21,6 +21,7 @@ responsible for creating encrypted private S3 buckets.
 | queries                       | map     |         | ✓        | A map of Athena query SQLs where key is the query name and the value is the path to the file containing the query
 | query_output_locations        | map     |         |          | A map of output locations (S3 URLs) for Athena queries. Keys are query names identical to the map above. If omitted, output locations need to be specified in queries.
 | query_output_buckets_kms_keys | map     |         |          | A map of KMS keys used to encrypt data in Athena queries output S3 buckets. Keys are query names identical to the map above. Results will not be encrypted if the key for a query is not defined in the map.
+| query_template_parameters     | map     |         |          | A map of key value pairs used to customise Athena queries. These are typically environment/stage specific. If omitted, only available query template parameters will be db_name and env.
 | namespace                     | string  |         | ✓        | Namespace used for labeling resources                  
 | name                          | string  |         | ✓        | Name of the module / resources                         
 | stage                         | string  |         | ✓        | What staga are the resources for? staging, production? 
