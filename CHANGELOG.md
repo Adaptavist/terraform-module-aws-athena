@@ -1,3 +1,10 @@
+# [1.3.0](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.2.0...v1.3.0) (2020-08-14)
+
+
+### Features
+
+* enable query customisations ([88aaf59](http://bitbucket.org/adaptavistlabs/module-aws-athena/commits/88aaf59943b421720a185335c4e5acf83c6d439d))
+
 # [1.2.0](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.1.0...v1.2.0) (2020-07-17)
 
 
