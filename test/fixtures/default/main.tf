@@ -40,5 +40,7 @@ module "this" {
   }
   database_force_destroy = true
   create_database        = true
+
+  query_template_parameters = { table = "my_table" }
 }
 

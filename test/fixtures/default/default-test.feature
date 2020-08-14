@@ -9,6 +9,11 @@ Feature: Athena queries
     Then it must contain name
     And its value must match the ".*_search_all" regex
 
+  Scenario: Athena named query is correctly parametrised
+    Given I have aws_athena_named_query defined
+    Then it must contain query
+    And its value must match the ".*my_table.*" regex
+
   Scenario: Athena database is created
     Given I have aws_athena_database defined
     Then it must contain name

@@ -60,3 +60,16 @@ variable "query_output_buckets_kms_keys" {
   default     = {}
   description = "A map of KMS keys used to encrypt data in output S3 buckets for Athena queries. Keys are query names identical to the map above. Results will not be encrypted if the key for a query is not defined in the map."
 }
+
+variable "enforce_workgroup_configuration" {
+  type        = string
+  default     = false
+  description = "Enforce workgroup configuration. Client side configuration will be ignored"
+}
+
+variable "query_template_parameters" {
+  type        = map(string)
+  default     = {}
+  description = "A map of key value pairs used to customise Athena queries. These are typically environment/stage specific. If omitted, only available query template parameters will be db_name and env."
+}
+

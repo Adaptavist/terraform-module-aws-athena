@@ -9,7 +9,7 @@ module "labels" {
 }
 
 locals {
-  db_name             = var.database_name != null ? var.database_name : "${module.labels.id}_${var.bucket_name}_db"
+  db_name             = var.database_name != null ? var.database_name : var.bucket_name != null ? "${module.labels.id}_${var.bucket_name}_db" : ""
   database_snake_case = replace(lower(local.db_name), "-", "_")
   env                 = lower(var.stage)
 }
@@ -31,7 +31,7 @@ resource "aws_athena_named_query" "queries" {
   name        = "${module.labels.id}_${each.key}"
   database    = local.database_snake_case
   description = "Query ${each.key}"
-  query       = templatefile(each.value, { db_name = local.database_snake_case, env = local.env })
+  query       = templatefile(each.value, merge({ db_name = local.database_snake_case, env = local.env }, var.query_template_parameters))
   workgroup   = (length(var.query_output_locations) == 0 ? "primary" : aws_athena_workgroup.queries[each.key].id)
 }
 
@@ -40,7 +40,7 @@ resource "aws_athena_workgroup" "queries" {
   name     = "${module.labels.id}_${each.key}_workgroup"
 
   configuration {
-    enforce_workgroup_configuration    = true
+    enforce_workgroup_configuration    = var.enforce_workgroup_configuration
     publish_cloudwatch_metrics_enabled = true
 
     result_configuration {
