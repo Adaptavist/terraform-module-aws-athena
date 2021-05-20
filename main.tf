@@ -24,6 +24,10 @@ resource "aws_athena_database" "this" {
   name          = local.database_snake_case
   bucket        = data.aws_s3_bucket.this[0].id
   force_destroy = var.database_force_destroy
+
+  encryption_configuration {
+    encryption_option = "SSE_S3"
+  }
 }
 
 resource "aws_athena_named_query" "queries" {
@@ -46,6 +50,8 @@ resource "aws_athena_workgroup" "queries" {
     result_configuration {
       output_location = each.value
 
+      #checkov:skip=CKV_AWS_159:encryption has been considered
+      #checkov:skip=CKV_AWS_82:encryption has been considered
       dynamic "encryption_configuration" {
         for_each = contains(keys(var.query_output_buckets_kms_keys), each.key) ? [true] : []
         content {
