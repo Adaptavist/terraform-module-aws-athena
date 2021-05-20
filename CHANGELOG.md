@@ -1,3 +1,10 @@
+## [1.3.1](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.3.0...v1.3.1) (2021-05-20)
+
+
+### Bug Fixes
+
+* using semantic release image and checkov ([da55cc2](http://bitbucket.org/adaptavistlabs/module-aws-athena/commits/da55cc287b5cf3dfe6f4f09c4b9ae9da498be574))
+
 # [1.3.0](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.2.0...v1.3.0) (2020-08-14)
 
 
