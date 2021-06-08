@@ -1,3 +1,10 @@
+## [1.3.2](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.3.1...v1.3.2) (2021-06-08)
+
+
+### Bug Fixes
+
+* the latest labels module ([9ea4c62](http://bitbucket.org/adaptavistlabs/module-aws-athena/commits/9ea4c629ec5e64a6ffc1dbd20a05dac9c4541229))
+
 ## [1.3.1](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.3.0...v1.3.1) (2021-05-20)
 
 
