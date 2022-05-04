@@ -1,3 +1,10 @@
+## [1.3.3](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.3.2...v1.3.3) (2022-05-04)
+
+
+### Bug Fixes
+
+* labels module upgrade ([07163c5](http://bitbucket.org/adaptavistlabs/module-aws-athena/commits/07163c58e0fe8aa2103e56f1e24becff9856cf9d))
+
 ## [1.3.2](http://bitbucket.org/adaptavistlabs/module-aws-athena/compare/v1.3.1...v1.3.2) (2021-06-08)
 
 
