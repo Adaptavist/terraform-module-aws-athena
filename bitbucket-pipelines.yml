@@ -1,4 +1,4 @@
-image: adaptavist/all-tools:latest
+image: adaptavist/openjdk14-latest-1.1.5
 
 definitions:
   checkov-image: &checkov-image

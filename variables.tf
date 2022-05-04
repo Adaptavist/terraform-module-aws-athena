@@ -72,4 +72,3 @@ variable "query_template_parameters" {
   default     = {}
   description = "A map of key value pairs used to customise Athena queries. These are typically environment/stage specific. If omitted, only available query template parameters will be db_name and env."
 }
-
